@@ -38,8 +38,11 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :test do 
+group :test, :development do
   gem 'rspec-rails'
+end
+
+group :test do 
   gem 'cucumber-rails'
   gem 'database_cleaner'
 end
