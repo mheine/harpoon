@@ -1,5 +1,6 @@
 language: ruby
 bundle_args: --without development
+before_script: bundle exec rake db:create db:migrate
 rvm:
   - 2.1.0
 
