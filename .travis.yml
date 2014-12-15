@@ -1,6 +1,8 @@
 language: ruby
-bundle_args: --without development
+bundle_args: "--without development"
 before_script: bundle exec rake db:create db:migrate
+notifications:
+  slack:
+    secure: iTPF17cLWd/yL9hmABQMXHOHdc1eH1fNrBD6bgwtqw0g0osF11WElzF/lAHqhCXIJgqH8VhGjQxuM2DidbDVGLUIq0476iTewTMsATdv96MOllRitFePdpm4tQ0PylhkCjPoWTmQ3L0A5UD5wNspdujGMXxCu18/AeP33AeVzfo=
 rvm:
-  - 2.1.0
-
+- 2.1.0
