@@ -1,5 +1,6 @@
 class ElectionsController < ApplicationController
   before_action :set_election, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   # GET /elections
   # GET /elections.json
@@ -25,30 +26,15 @@ class ElectionsController < ApplicationController
   # POST /elections.json
   def create
     @election = Election.new(election_params)
-
-    respond_to do |format|
-      if @election.save
-        format.html { redirect_to @election, notice: 'Election was successfully created.' }
-        format.json { render :show, status: :created, location: @election }
-      else
-        format.html { render :new }
-        format.json { render json: @election.errors, status: :unprocessable_entity }
-      end
-    end
+    @election.save
+    respond_with @election
   end
 
   # PATCH/PUT /elections/1
   # PATCH/PUT /elections/1.json
   def update
-    respond_to do |format|
-      if @election.update(election_params)
-        format.html { redirect_to @election, notice: 'Election was successfully updated.' }
-        format.json { render :show, status: :ok, location: @election }
-      else
-        format.html { render :edit }
-        format.json { render json: @election.errors, status: :unprocessable_entity }
-      end
-    end
+    @election.update(election_params)
+    respond_with(@election)
   end
 
   # DELETE /elections/1
